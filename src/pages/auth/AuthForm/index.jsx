@@ -13,7 +13,7 @@ const AuthForm = (props) => {
   });
   console.log(formData);
   return (
-    <div className="border-2 border-slate-200 rounded-md w-68 p-4 shadow-lg">
+    <div className="bg-white border-2 border-slate-200 rounded-md w-68 p-4 shadow-lg font-secondary">
       <form className="  rounded-md  ">
         {fields.map((field) => (
           <Field
