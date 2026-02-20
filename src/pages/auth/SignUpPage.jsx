@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Users from "services/user";
 import AuthForm from "./AuthForm";
 import FormContainer from "./FormContainer";
 
 const SignUpPage = () => {
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const submitHandler = async (value) => {
     setError("");
@@ -32,6 +33,8 @@ const SignUpPage = () => {
 
       if (!res.ok) {
         setError(data.error);
+      } else {
+        navigate("/", { state: { newAccount: true } });
       }
     } catch (err) {
       console.error(err);

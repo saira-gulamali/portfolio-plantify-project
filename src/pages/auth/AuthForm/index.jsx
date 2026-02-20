@@ -42,7 +42,7 @@ const AuthForm = (props) => {
           {buttonText}
           {loading && (
             <div className="absolute text-black top-0 right-5 h-full flex items-center animate-spin ">
-              <i class="fa-solid fa-spinner text-emerald-100 text-sm"></i>
+              <i className="fa-solid fa-spinner text-emerald-100 text-sm"></i>
             </div>
           )}
         </button>
