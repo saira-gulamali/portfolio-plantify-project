@@ -1,6 +1,6 @@
+import SignInPage from "pages/auth/SignInPage";
+import SignUpPage from "pages/auth/SignUpPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignInPage from "./pages/auth/SignInPage";
-import SignUpPage from "./pages/auth/SignUpPage";
 
 // test api route
 // const response = await apiFetch("GET", "/api-key/info");
