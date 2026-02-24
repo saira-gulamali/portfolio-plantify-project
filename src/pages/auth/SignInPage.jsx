@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import SessionContext from "src/context/SessionContext";
 import { createSession } from "src/services/user";
 import AuthForm from "./AuthForm";
 import FormContainer from "./FormContainer";
@@ -7,6 +8,9 @@ import FormContainer from "./FormContainer";
 const SignInPage = () => {
   const [error, setError] = useState("");
   const location = useLocation();
+  const SessionData = useContext(SessionContext);
+  console.log({ SessionData });
+  // const navigate = useNavigate();
 
   return (
     <FormContainer>
@@ -32,7 +36,8 @@ const SignInPage = () => {
             });
             const data = await response.json();
             if (response.status === 201) {
-              console.log(data);
+              SessionData.signInUser(data.capstone_session_token);
+              // navigate("/plants");
             } else {
               setError(data.error);
             }
