@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import SessionContext from "src/context/SessionContext";
-import { createSession } from "src/services/user";
+import SessionContext from "context/SessionContext";
+import { createSession } from "services/user";
 import AuthForm from "./AuthForm";
 import FormContainer from "./FormContainer";
 

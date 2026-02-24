@@ -3,7 +3,7 @@ import {
   getSessionTokenStorage,
   removeSessionTokenStorage,
   setSessionTokenStorage,
-} from "src/services/user";
+} from "services/user";
 import SessionContext from "./SessionContext";
 
 export const SessionProvider = ({ children }) => {
