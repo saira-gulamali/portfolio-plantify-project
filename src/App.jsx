@@ -1,7 +1,7 @@
 import SignInPage from "pages/auth/SignInPage";
 import SignUpPage from "pages/auth/SignUpPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { SessionProvider } from "./context/SessionContext";
+import { SessionProvider } from "./context/SessionProvider";
 // test api route
 // const response = await apiFetch("GET", "/api-key/info");
 // console.log(response.status);
