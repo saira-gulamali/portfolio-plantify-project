@@ -2,7 +2,7 @@ import apiFetch from "./apiFetch";
 
 const CAPSTONE_SESSION_KEY = "capstone-session-key";
 
-export const creatUser = ({ username, password }) => {
+export const createUser = ({ username, password }) => {
   return apiFetch("POST", "/users", { username, password });
 };
 
