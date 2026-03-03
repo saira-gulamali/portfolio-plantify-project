@@ -1,3 +1,4 @@
+import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
 import {
   getSessionTokenStorage,
@@ -21,8 +22,16 @@ export const SessionProvider = ({ children }) => {
     removeSessionTokenStorage();
   };
 
+  const decodedToken = sessionToken && jwtDecode(sessionToken);
+
   return (
-    <SessionContext.Provider value={{ signInUser, signOutUser }}>
+    <SessionContext.Provider
+      value={{
+        signInUser,
+        signOutUser,
+        username: decodedToken?.username || null,
+      }}
+    >
       {children}
     </SessionContext.Provider>
   );
