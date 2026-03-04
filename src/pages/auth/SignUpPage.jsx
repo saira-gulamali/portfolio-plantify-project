@@ -25,7 +25,7 @@ const SignUpPage = () => {
     }
 
     try {
-      const res = await Users.creatUser({
+      const res = await Users.createUser({
         username: value.username,
         password: value.password,
       });
