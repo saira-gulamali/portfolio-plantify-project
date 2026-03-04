@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 
 const Navbar = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  const { username } = useContext(SessionContext);
+  const { username, signOutUser } = useContext(SessionContext);
 
   return (
     <nav
@@ -30,7 +30,10 @@ const Navbar = () => {
             <div className="text-white font-primary ">{username}</div>
           </button>
           {isUserMenuOpen && (
-            <button className="absolute -bottom-8 w-22 h-7 -right-1  bg-white rounded-md shadow-md text-slate-500 hover:text-emerald-700 flex items-center text-sm">
+            <button
+              className="absolute -bottom-8 w-22 h-7 -right-1  bg-white rounded-md shadow-md text-slate-500 hover:text-emerald-700 flex items-center text-sm"
+              onClick={signOutUser}
+            >
               <i className="fa-regular fa-arrow-right-from-bracket mx-1"></i>
               <div>Sign Out</div>
             </button>
