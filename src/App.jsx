@@ -4,9 +4,7 @@ import PlantsListPage from "pages/PlantsListPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RedirectToPlantsIfSignedIn from "shared-components/RedirectToPlantsIfSignedIn";
 import { SessionProvider } from "./context/SessionProvider";
-// test api route
-// const response = await apiFetch("GET", "/api-key/info");
-// console.log(response.status);
+import RedirectToSignInIfSignOut from "shared-components/RedirectToSignInIfSignOut";
 
 function App() {
   return (
@@ -30,7 +28,14 @@ function App() {
               </RedirectToPlantsIfSignedIn>
             }
           />
-          <Route path="plants" element={<PlantsListPage />} />
+          <Route
+            path="plants"
+            element={
+              <RedirectToSignInIfSignOut>
+                <PlantsListPage />
+              </RedirectToSignInIfSignOut>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </SessionProvider>
