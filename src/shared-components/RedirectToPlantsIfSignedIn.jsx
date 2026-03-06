@@ -8,7 +8,6 @@ const RedirectToPlantsIfSignedIn = ({ children }) => {
 
   useEffect(() => {
     if (username !== null) {
-      console.log("redirecting to plants page");
       navigate("/plants");
     }
   }, [username]);
