@@ -10,7 +10,7 @@ const RedirectToPlantsIfSignedIn = ({ children }) => {
     if (username !== null) {
       navigate("/plants");
     }
-  }, [username]);
+  }, [username, navigate]);
 
   return <div>{children}</div>;
 };
