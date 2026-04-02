@@ -1,18 +1,24 @@
 import React from "react";
+import PlantHeader from "./PlantHeader";
 
 const PlantDetail = (props) => {
   const { plant } = props;
   console.log({ plant });
   return (
-    <div className="flex pt-8 p-4">
+    <div className="flex flex-col md:flex-row pt-8 p-4">
+      <div className="block md:hidden pb-6">
+        <PlantHeader plant={plant} />
+      </div>
+
+      {/* right side */}
       <div className="flex-1">
         <img className="rounded-lg" src={plant?.images[0]?.src} />
       </div>
-      <div className="flex-1 p-2 font-secondary ml-4">
-        <h1 className="font-primary text-3xl text-emerald-600">{plant.name}</h1>
-        <h2 className="text-slate-600 italic text-sm ">
-          {plant.botanical_name}
-        </h2>
+      {/* left side  */}
+      <div className="flex-1 p-2 font-secondary md:ml-4 ">
+        <div className="hidden md:flex">
+          <PlantHeader plant={plant} />
+        </div>
         <p className="leading-relaxed mt-4 text-slate-600">
           {plant.description}
         </p>

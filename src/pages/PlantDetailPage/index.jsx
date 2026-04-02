@@ -12,10 +12,21 @@ const PlantDetailPage = () => {
 
   useEffect(() => {
     const getPlantDetails = async (id) => {
-      const res = await plantService.getPlantDetails(id);
-      const data = await res.json();
-      setIsLoading(false);
-      setplant(data);
+      try {
+        const res = await plantService.getPlantDetails(id);
+        const data = await res.json();
+
+        setplant(data);
+
+        if (!res.ok) {
+          console.log("api call failed!");
+        }
+      } catch (error) {
+        console.log("network error");
+        console.log({ error });
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     getPlantDetails(plantId);
@@ -29,7 +40,7 @@ const PlantDetailPage = () => {
         <div className="w-full max-w-5xl border-2 border-red-600 flex justify-center">
           {isLoading && <Spinner />}
 
-          <PlantDetail plant={plant} />
+          {plant && <PlantDetail plant={plant} />}
         </div>
       </main>
     </div>
