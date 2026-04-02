@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RedirectToPlantsIfSignedIn from "shared-components/RedirectToPlantsIfSignedIn";
 import { SessionProvider } from "./context/SessionProvider";
 import RedirectToSignInIfSignOut from "shared-components/RedirectToSignInIfSignOut";
+import PlantDetailPage from "pages/PlantDetailPage";
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
             element={
               <RedirectToSignInIfSignOut>
                 <PlantsListPage />
+              </RedirectToSignInIfSignOut>
+            }
+          />
+          <Route
+            path="plants/:plantId"
+            element={
+              <RedirectToSignInIfSignOut>
+                <PlantDetailPage />
               </RedirectToSignInIfSignOut>
             }
           />
