@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "shared-components/Navbar";
 import * as plantService from "services/plants";
 import { useParams } from "react-router-dom";
+import Spinner from "shared-components/Spinner";
 
 const PlantDetailPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,9 @@ const PlantDetailPage = () => {
       <Navbar />
 
       <main className="bg-emerald-100 min-h-screen flex justify-center">
-        <div className="w-full max-w-5xl border-2 border-red-600"></div>
+        <div className="w-full max-w-5xl border-2 border-red-600 flex justify-center">
+          {isLoading && <Spinner />}
+        </div>
       </main>
     </div>
   );
