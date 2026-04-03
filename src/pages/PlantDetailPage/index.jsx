@@ -13,9 +13,9 @@ const PlantDetailPage = () => {
   useEffect(() => {
     const getPlantDetails = async (id) => {
       try {
+        setIsLoading(true);
         const res = await plantService.getPlantDetails(id);
         const data = await res.json();
-
         setplant(data);
 
         if (!res.ok) {
@@ -32,15 +32,26 @@ const PlantDetailPage = () => {
     getPlantDetails(plantId);
   }, [plantId]);
 
+  if (isLoading) {
+    return (
+      <div className="h-screen bg-emerald-100 ">
+        <Navbar />
+        <main className="  flex justify-center">
+          <div className="w-full max-w-5xl border-2 border-red-600 flex justify-center">
+            <Spinner />
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="h-screen bg-emerald-100">
       <Navbar />
 
       <main className="  flex justify-center">
         <div className="w-full max-w-5xl border-2 border-red-600 flex justify-center">
-          {isLoading && <Spinner />}
-
-          {plant && <PlantDetail plant={plant} />}
+          <PlantDetail plant={plant} />
         </div>
       </main>
     </div>
