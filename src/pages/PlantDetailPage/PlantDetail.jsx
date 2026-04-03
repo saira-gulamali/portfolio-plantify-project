@@ -6,6 +6,7 @@ const PlantDetail = (props) => {
   console.log({ plant });
   return (
     <div className="flex flex-col md:flex-row pt-8 p-4">
+      {/* plant-header for mobile */}
       <div className="block md:hidden pb-6">
         <PlantHeader plant={plant} />
       </div>
@@ -16,7 +17,8 @@ const PlantDetail = (props) => {
       </div>
       {/* left side  */}
       <div className="flex-1 p-2 font-secondary md:ml-4 ">
-        <div className="hidden md:flex">
+        {/* plant-header for desktop */}
+        <div className="hidden md:block">
           <PlantHeader plant={plant} />
         </div>
         <p className="leading-relaxed mt-4 text-slate-600">
