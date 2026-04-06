@@ -1,10 +1,15 @@
+import { useState } from "react";
+import { randomColorIdx } from "utils";
 import BenefitBox from "./BenefitBox";
 import PlantHeader from "./PlantHeader";
 import PlantPurchaseOptions from "./PlantPurchaseOptions";
 
 const PlantDetail = (props) => {
   const { plant } = props;
-  console.log({ plant });
+  const [colorIndex, setColorIndex] = useState(() =>
+    randomColorIdx(plant.images),
+  );
+
   return (
     <div className="flex flex-col md:flex-row pt-8 p-4">
       {/* plant-header for mobile */}
@@ -14,7 +19,7 @@ const PlantDetail = (props) => {
 
       {/* right side */}
       <div className="flex-1">
-        <img className="rounded-lg" src={plant?.images[0]?.src} />
+        <img className="rounded-lg" src={plant?.images[colorIndex]?.src} />
         <div className="flex m-8">
           <BenefitBox
             icon="far fa-check-circle"
@@ -24,8 +29,8 @@ const PlantDetail = (props) => {
           <div className="w-px bg-slate-300 mt-2"></div>
           <BenefitBox
             icon="fa-solid fa-truck-fast"
-            title="Guaranteed Healthy"
-            description="Guaranteed to arrive healthy or your money back"
+            title="Free Shipping"
+            description="Get free ground shipping on orders of $50 or more"
           />
         </div>
       </div>
@@ -38,7 +43,11 @@ const PlantDetail = (props) => {
         <p className="leading-relaxed mt-4 text-slate-600">
           {plant.description}
         </p>
-        <PlantPurchaseOptions plant={plant} />
+        <PlantPurchaseOptions
+          plant={plant}
+          colorIndex={colorIndex}
+          setColorIndex={setColorIndex}
+        />
       </div>
     </div>
   );
