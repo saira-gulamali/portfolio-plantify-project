@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import * as PlantsService from "services/plants";
 import Navbar from "shared-components/Navbar";
-import PlantItem from "./PlantItem";
 import Spinner from "shared-components/Spinner";
+import PlantItem from "./PlantItem";
 
 const PlantsListPage = () => {
   const [plants, setPlants] = useState([]);
@@ -21,7 +21,7 @@ const PlantsListPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-emerald-100">
       <Navbar />
       <h1 className="text-3xl font-primary font-bold text-emerald-700 m-8">
         Plants In Stock
