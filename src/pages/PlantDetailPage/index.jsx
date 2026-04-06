@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "shared-components/Navbar";
-import * as plantService from "services/plants";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import * as plantService from "services/plants";
+import Navbar from "shared-components/Navbar";
 import Spinner from "shared-components/Spinner";
 import PlantDetail from "./PlantDetail";
 
@@ -34,10 +34,10 @@ const PlantDetailPage = () => {
 
   if (isLoading) {
     return (
-      <div className="h-screen bg-emerald-100 ">
+      <div className=" h-screen  bg-emerald-100 ">
         <Navbar />
         <main className="  flex justify-center">
-          <div className="w-full max-w-5xl border-2 border-red-600 flex justify-center">
+          <div className="w-full max-w-5xl  flex justify-center">
             <Spinner />
           </div>
         </main>
@@ -46,11 +46,11 @@ const PlantDetailPage = () => {
   }
 
   return (
-    <div className="h-screen bg-emerald-100">
+    <div className="min-h-screen bg-emerald-100">
       <Navbar />
 
       <main className="  flex justify-center">
-        <div className="w-full max-w-5xl border-2 border-red-600 flex justify-center">
+        <div className="w-full max-w-5xl  flex justify-center">
           <PlantDetail plant={plant} />
         </div>
       </main>
