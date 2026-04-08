@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { POT_COLORS } from "utils";
 import * as cartService from "services/cart";
 
