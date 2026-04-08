@@ -1,15 +1,25 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { POT_COLORS } from "utils";
+import * as cartService from "services/cart";
 
 const PlantPurchaseOptions = (props) => {
   const { plant, colorIndex, setColorIndex } = props;
 
   const [quantity, setQuantity] = useState(5);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setQuantity(quantity + 1);
-  }, []);
+  const handleClick = async () => {
+    setIsLoading(true);
+    const res = await cartService.addPlantToCart({
+      plantId: plant.id,
+      quantity,
+      potColor: plant.images[colorIndex].pot_color,
+    });
+
+    console.log(res.status);
+    setIsLoading(false);
+  };
 
   return (
     <>
@@ -69,8 +79,15 @@ const PlantPurchaseOptions = (props) => {
           </button>
         </div>
         {/* add to cart button */}
-        <button className="border-2 flex-1 ml-2 bg-emerald-600 text-emerald-100 rounded-full hover:bg-emerald-700">
-          <i className="fa-solid fa-cart-arrow-down mr-2"></i>
+        <button
+          className="border-2 flex-1 ml-2 bg-emerald-600 text-emerald-100 rounded-full hover:bg-emerald-700"
+          onClick={handleClick}
+        >
+          {isLoading ? (
+            <i className="fa-solid fa-spinner animate-spin mr-2"></i>
+          ) : (
+            <i className="fa-solid fa-cart-arrow-down mr-2"></i>
+          )}
           Add to Cart
         </button>
       </div>
