@@ -23,7 +23,7 @@ const CartModal = (props) => {
   return (
     <div
       // onClick={() => setIsCartOpen(false)}
-      className=" bg-black/50 h-full  w-full fixed  border-6 border-red-500 top-0 left-0 "
+      className=" bg-black/50 h-full  w-full fixed   top-0 left-0 "
     >
       <RemoveScroll>
         <div className="bg-emerald-50 max-w-lg  w-full h-full absolute top-0 right-0 overflow-auto">
