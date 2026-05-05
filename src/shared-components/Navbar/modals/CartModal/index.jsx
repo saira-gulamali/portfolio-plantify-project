@@ -23,6 +23,14 @@ const CartModal = (props) => {
     fetchCart();
   }, [fetchCart]);
 
+  let totalItem = 0;
+  let totalPrice = 0;
+
+  for (let item of cartData) {
+    totalItem += item.quantity;
+    totalPrice += item.quantity * item.price_per_unit;
+  }
+
   return (
     <div
       // onClick={() => setIsCartOpen(false)}
@@ -62,10 +70,13 @@ const CartModal = (props) => {
           {/* footer */}
           <footer className="p-6 border-t border-slate-300 mt-4">
             <div className="flex justify-between text-slate-600 text-xl">
-              <div>7 items: </div>
+              <div>{totalItem} items: </div>
               <div>
                 subtotal:{" "}
-                <span className="text-slate-800 text-xl"> $185 </span>{" "}
+                <span className="text-slate-800 text-xl">
+                  {" "}
+                  ${totalPrice}{" "}
+                </span>{" "}
               </div>
             </div>
             <div className="mt-6 p-2">
