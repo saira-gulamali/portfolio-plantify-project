@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { RemoveScroll } from "react-remove-scroll";
 import * as cartService from "services/cart";
 import Spinner from "shared-components/Spinner";
@@ -10,17 +10,18 @@ const CartModal = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [cartData, setCartData] = useState([]);
 
-  useEffect(() => {
-    const fetchCart = async () => {
-      setIsLoading(true);
-      const response = await cartService.getCart();
-      const data = await response.json();
-      console.log(data);
-      setCartData(data);
-      setIsLoading(false);
-    };
-    fetchCart();
+  const fetchCart = useCallback(async () => {
+    setIsLoading(true);
+    const response = await cartService.getCart();
+    const data = await response.json();
+    console.log(data);
+    setCartData(data);
+    setIsLoading(false);
   }, []);
+
+  useEffect(() => {
+    fetchCart();
+  }, [fetchCart]);
 
   return (
     <div
@@ -53,7 +54,7 @@ const CartModal = (props) => {
                       index !== 0 && "border-t border-slate-400",
                     )}
                   >
-                    <CartItem data={item} />
+                    <CartItem data={item} fetchCart={fetchCart} />
                   </div>
                 );
               })}

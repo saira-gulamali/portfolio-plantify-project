@@ -7,8 +7,10 @@
 //     "quantity": 5
 // }
 
+import * as cartService from "services/cart";
+
 const CartItem = (props) => {
-  const { data } = props;
+  const { data, fetchCart } = props;
 
   return (
     <div className="font-secondary flex text-slate-600 ">
@@ -32,7 +34,13 @@ const CartItem = (props) => {
           {data.pot_color}
         </div>
         <div className="flex justify-end">
-          <button className=" text-slate-500 hover:text-red-700">
+          <button
+            className=" text-slate-500 hover:text-red-700"
+            onClick={async () => {
+              await cartService.removePlantFromCart({ cartId: data.id });
+              await fetchCart();
+            }}
+          >
             remove{" "}
             <span>
               <i className="fa-regular fa-trash"></i>
