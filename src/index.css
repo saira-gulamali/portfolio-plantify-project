@@ -4,3 +4,26 @@
   --font-primary: "Playfair Display", serif;
   --font-secondary: "Lato", sans-serif;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background:  oklch(90.683% 0.01262 165.222);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: oklch(50.8% 0.118 165.612);
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    /* background: ; */
+    background: oklch(43.2% 0.095 166.913);
+}
