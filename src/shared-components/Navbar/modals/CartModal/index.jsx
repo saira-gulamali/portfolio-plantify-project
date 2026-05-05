@@ -14,7 +14,6 @@ const CartModal = (props) => {
     setIsLoading(true);
     const response = await cartService.getCart();
     const data = await response.json();
-    console.log(data);
     setCartData(data);
     setIsLoading(false);
   }, []);
@@ -32,10 +31,7 @@ const CartModal = (props) => {
   }
 
   return (
-    <div
-      // onClick={() => setIsCartOpen(false)}
-      className=" bg-black/50 h-full  w-full fixed   top-0 left-0 "
-    >
+    <div className=" bg-black/50 h-full  w-full fixed   top-0 left-0 ">
       <RemoveScroll>
         <div className="bg-emerald-50 max-w-lg  w-full h-full absolute top-0 right-0 flex flex-col">
           {/* modal navbar */}

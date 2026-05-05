@@ -1,12 +1,3 @@
-// {
-//     "id": 1405,
-//     "image_src": "https://static-task-assets.react-formula.com/summer_bromeliad_black.jpeg",
-//     "plant_name": "Summer Bromeliad",
-//     "pot_color": "black",
-//     "price_per_unit": 37,
-//     "quantity": 5
-// }
-
 import * as cartService from "services/cart";
 
 const CartItem = (props) => {
