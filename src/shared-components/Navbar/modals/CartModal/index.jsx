@@ -28,7 +28,8 @@ const CartModal = (props) => {
       className=" bg-black/50 h-full  w-full fixed   top-0 left-0 "
     >
       <RemoveScroll>
-        <div className="bg-emerald-50 max-w-lg  w-full h-full absolute top-0 right-0 overflow-auto flex flex-col">
+        <div className="bg-emerald-50 max-w-lg  w-full h-full absolute top-0 right-0 flex flex-col">
+          {/* modal navbar */}
           <div className="bg-emerald-700 p-8 shadow-lg font-primary text-3xl text-emerald-100 text-center border-4 border-pink-700">
             <div>Plantify Plants</div>
             <button
@@ -38,7 +39,8 @@ const CartModal = (props) => {
               <i className="fa-regular fa-circle-xmark "></i>
             </button>{" "}
           </div>
-          <div className="flex justify-center flex-col p-6 border-4 border-black-700 flex-1">
+          {/* main section */}
+          <main className="flex-col p-6 border-4 border-black-700 flex-1 overflow-y-scroll">
             {isLoading && <Spinner />}
 
             {!isLoading &&
@@ -47,7 +49,7 @@ const CartModal = (props) => {
                   <div
                     key={item.id}
                     className={clsx(
-                      `py-6`,
+                      `py-6 border-4 border-yellow-700`,
                       index !== 0 && "border-t border-slate-400",
                     )}
                   >
@@ -55,11 +57,15 @@ const CartModal = (props) => {
                   </div>
                 );
               })}
-          </div>
+          </main>
+          {/* footer */}
           <footer className="p-6 border-2 border-red-700">
             <div className="flex justify-between text-slate-600 text-xl">
               <div>7 items: </div>
-              <div>subtotal: <span className="text-slate-800 text-xl"> $185 </span> </div>
+              <div>
+                subtotal:{" "}
+                <span className="text-slate-800 text-xl"> $185 </span>{" "}
+              </div>
             </div>
             <div className="mt-6 p-2">
               <button className=" text-white font-secondary w-full py-2 rounded-full bg-emerald-700 text-xl">
