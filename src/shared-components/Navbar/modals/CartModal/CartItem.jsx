@@ -11,7 +11,7 @@ const CartItem = (props) => {
   const { data } = props;
 
   return (
-    <div className="font-secondary flex text-slate-600 mb-8 ">
+    <div className="font-secondary flex text-slate-600 ">
       {/* first child */}
       <img className="w-24 mr-4 rounded-md" src={data.image_src} />
 
