@@ -33,9 +33,10 @@ const CartModal = (props) => {
   return (
     <div className=" bg-black/50 h-full  w-full fixed   top-0 left-0 ">
       <RemoveScroll>
+        {/* ---------------------- modal ----------------------  */}
         <div className="bg-emerald-50 max-w-lg  w-full h-full absolute top-0 right-0 flex flex-col">
-          {/* modal navbar */}
-          <div className="bg-emerald-700 p-8 shadow-lg font-primary text-3xl text-emerald-100 text-center">
+          {/* ---------------------- header ----------------------  */}
+          <header className="bg-emerald-700 p-8 shadow-lg font-primary text-3xl text-emerald-100 text-center">
             <div>Plantify Plants</div>
             <button
               onClick={() => setIsCartOpen(false)}
@@ -43,8 +44,8 @@ const CartModal = (props) => {
             >
               <i className="fa-regular fa-circle-xmark "></i>
             </button>{" "}
-          </div>
-          {/* main section */}
+          </header>
+          {/* ---------------------- main ----------------------  */}
           <main className="flex-col p-6 flex-1 overflow-y-scroll">
             {isLoading && <Spinner />}
 
@@ -63,16 +64,13 @@ const CartModal = (props) => {
                 );
               })}
           </main>
-          {/* footer */}
+          {/* ---------------------- footer ----------------------  */}
           <footer className="p-6 border-t border-slate-300 mt-4">
             <div className="flex justify-between text-slate-600 text-xl">
               <div>{totalItem} items: </div>
               <div>
                 subtotal:{" "}
-                <span className="text-slate-800 text-xl">
-                  {" "}
-                  ${totalPrice}{" "}
-                </span>{" "}
+                <span className="text-slate-800 text-xl">${totalPrice}</span>
               </div>
             </div>
             <div className="mt-6 p-2">
