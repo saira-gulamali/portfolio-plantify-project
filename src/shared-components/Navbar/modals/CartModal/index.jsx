@@ -30,7 +30,7 @@ const CartModal = (props) => {
       <RemoveScroll>
         <div className="bg-emerald-50 max-w-lg  w-full h-full absolute top-0 right-0 flex flex-col">
           {/* modal navbar */}
-          <div className="bg-emerald-700 p-8 shadow-lg font-primary text-3xl text-emerald-100 text-center border-4 border-pink-700">
+          <div className="bg-emerald-700 p-8 shadow-lg font-primary text-3xl text-emerald-100 text-center">
             <div>Plantify Plants</div>
             <button
               onClick={() => setIsCartOpen(false)}
@@ -40,7 +40,7 @@ const CartModal = (props) => {
             </button>{" "}
           </div>
           {/* main section */}
-          <main className="flex-col p-6 border-4 border-black-700 flex-1 overflow-y-scroll">
+          <main className="flex-col p-6 flex-1 overflow-y-scroll">
             {isLoading && <Spinner />}
 
             {!isLoading &&
@@ -49,7 +49,7 @@ const CartModal = (props) => {
                   <div
                     key={item.id}
                     className={clsx(
-                      `py-6 border-4 border-yellow-700`,
+                      `py-6`,
                       index !== 0 && "border-t border-slate-400",
                     )}
                   >
@@ -59,7 +59,7 @@ const CartModal = (props) => {
               })}
           </main>
           {/* footer */}
-          <footer className="p-6 border-2 border-red-700">
+          <footer className="p-6 border-t border-slate-300 mt-4">
             <div className="flex justify-between text-slate-600 text-xl">
               <div>7 items: </div>
               <div>
