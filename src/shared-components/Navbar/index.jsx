@@ -2,6 +2,7 @@ import SessionContext from "context/SessionContext";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CartModal from "./modals/CartModal";
+import ModalWrapper from "./modals/ModalWrapper";
 
 const Navbar = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -55,15 +56,22 @@ const Navbar = () => {
               </button>
             )}
           </div>
+          {/* hamburger button */}
           <div className="flex sm:hidden">
-            <button onClick={() => setIsMobileMenuOpen(true)}>
+            <button
+            // onClick={() => setIsMobileMenuOpen(true)}
+            >
               <i className="text-white text-4xl fa-regular fa-bars"></i>
             </button>
           </div>
         </div>
       </nav>
 
-      {isCartOpen && <CartModal setIsCartOpen={setIsCartOpen} />}
+      {/* {isCartOpen && <CartModal setIsCartOpen={setIsCartOpen} />} */}
+
+      <ModalWrapper isOpen={isCartOpen} closeMenu={() => setIsCartOpen(false)}>
+        <CartModal />
+      </ModalWrapper>
     </>
   );
 };
