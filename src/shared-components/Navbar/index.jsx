@@ -2,6 +2,7 @@ import SessionContext from "context/SessionContext";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CartModal from "./modals/CartModal";
+import MobileMenuModal from "./modals/MobileMenuModal";
 import ModalWrapper from "./modals/ModalWrapper";
 
 const Navbar = () => {
@@ -51,16 +52,14 @@ const Navbar = () => {
                 className="absolute -bottom-8 w-22 h-7 -right-1  bg-white rounded-md shadow-md text-slate-500 hover:text-emerald-700 flex items-center text-sm"
                 onClick={signOutUser}
               >
-                <i className="fa-regular fa-arrow-right-from-bracket mx-1"></i>
+                <i className="fa-regular fa-arrow-right-from-bracket text-xl mx-1"></i>
                 <div>Sign Out</div>
               </button>
             )}
           </div>
           {/* hamburger button */}
           <div className="flex sm:hidden">
-            <button
-            // onClick={() => setIsMobileMenuOpen(true)}
-            >
+            <button onClick={() => setIsMobileMenuOpen(true)}>
               <i className="text-white text-4xl fa-regular fa-bars"></i>
             </button>
           </div>
@@ -71,6 +70,18 @@ const Navbar = () => {
 
       <ModalWrapper isOpen={isCartOpen} closeMenu={() => setIsCartOpen(false)}>
         <CartModal />
+      </ModalWrapper>
+
+      <ModalWrapper
+        isOpen={isMobileMenuOpen}
+        closeMenu={() => setIsMobileMenuOpen(false)}
+      >
+        <MobileMenuModal
+          setCartOpen={() => {
+            setIsCartOpen(true);
+            setIsMobileMenuOpen(false);
+          }}
+        />
       </ModalWrapper>
     </>
   );

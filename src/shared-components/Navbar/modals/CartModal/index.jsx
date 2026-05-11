@@ -4,8 +4,7 @@ import * as cartService from "services/cart";
 import Spinner from "shared-components/Spinner";
 import CartItem from "./CartItem";
 
-const CartModal = (props) => {
-  const { setIsCartOpen } = props;
+const CartModal = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [cartData, setCartData] = useState([]);
 
