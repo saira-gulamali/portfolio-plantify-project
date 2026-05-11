@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { username, signOutUser } = useContext(SessionContext);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
@@ -27,7 +28,7 @@ const Navbar = () => {
               Plantify Plants
             </div>
           </div>
-          <div className="relative flex-1 flex justify-end">
+          <div className="relative flex-1 hidden sm:flex justify-end">
             <button
               onClick={() => {
                 setIsCartOpen(true);
@@ -53,6 +54,11 @@ const Navbar = () => {
                 <div>Sign Out</div>
               </button>
             )}
+          </div>
+          <div className="flex sm:hidden">
+            <button onClick={() => setIsMobileMenuOpen(true)}>
+              <i className="text-white text-4xl fa-regular fa-bars"></i>
+            </button>
           </div>
         </div>
       </nav>
