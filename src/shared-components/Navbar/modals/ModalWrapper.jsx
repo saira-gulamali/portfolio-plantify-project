@@ -16,7 +16,7 @@ const ModalWrapper = (props) => {
           closeMenu();
         }
       }}
-      className=" bg-black/50  h-full  w-full fixed   top-0 left-0 "
+      className=" bg-black/50 backdrop-blur  h-full  w-full fixed   top-0 left-0 "
     >
       <RemoveScroll>
         {/* ---------------------- modal ----------------------  */}
