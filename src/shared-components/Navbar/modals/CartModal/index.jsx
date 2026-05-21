@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import * as cartService from "services/cart";
 import Spinner from "shared-components/Spinner";
 import CartItem from "./CartItem";
+import { motion } from "motion/react";
 
 const CartModal = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +30,12 @@ const CartModal = () => {
   }
 
   return (
-    <div className="bg-emerald-50 max-w-lg  w-full h-full absolute top-0 right-0 flex flex-col">
+    <motion.div
+      initial={{ translateX: "100%" }}
+      animate={{ translateX: "0" }}
+      transition={{ duration: 0.3 }}
+      className="bg-emerald-50 max-w-lg  w-full h-full absolute top-0 right-0 flex flex-col"
+    >
       {/* ---------------------- header ----------------------  */}
       <header className="bg-emerald-700 p-8 shadow-lg font-primary text-3xl text-emerald-100 text-center">
         <div>Plantify Plants</div>
@@ -68,7 +74,7 @@ const CartModal = () => {
           </button>
         </div>
       </footer>
-    </div>
+    </motion.div>
   );
 };
 
