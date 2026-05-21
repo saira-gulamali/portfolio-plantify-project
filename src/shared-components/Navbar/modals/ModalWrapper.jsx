@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { RemoveScroll } from "react-remove-scroll";
+import { motion } from "motion/react";
 
 const ModalWrapper = (props) => {
   const modalRef = useRef(null);
@@ -20,9 +21,15 @@ const ModalWrapper = (props) => {
     >
       <RemoveScroll>
         {/* ---------------------- modal ----------------------  */}
-        <button onClick={closeMenu} className="absolute z-10 top-0 right-0 p-4">
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          onClick={closeMenu}
+          className="absolute z-10 top-0 right-0 p-4"
+        >
           <i className="fa-regular fa-circle-xmark text-white text-4xl "></i>
-        </button>{" "}
+        </motion.button>{" "}
         {children}
       </RemoveScroll>
     </div>
