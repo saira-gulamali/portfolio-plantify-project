@@ -1,11 +1,17 @@
 import SessionContext from "context/SessionContext";
 import { useContext } from "react";
+import { motion } from "motion/react";
 
 const MobileMenuModal = (props) => {
   const { username, signOutUser } = useContext(SessionContext);
   const { setCartOpen } = props;
   return (
-    <div className=" flex justify-end">
+    <motion.div
+      initial={{ translateY: "-100%" }}
+      animate={{ translateY: "0" }}
+      transition={{ duration: 0.3 }}
+      className=" flex justify-end   "
+    >
       <div className="text-white text-xl font-secondary flex flex-col justify-start items-start gap-4 bg-emerald-700 w-64 p-12 rounded-bl-2xl">
         <div className="text-start w-full p-4 ">
           <i className="fa-light fa-user text-white text-xl mr-2"></i>
@@ -20,7 +26,7 @@ const MobileMenuModal = (props) => {
           signout
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
