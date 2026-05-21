@@ -3,6 +3,8 @@ import { randomColorIdx } from "utils";
 import BenefitBox from "./BenefitBox";
 import PlantHeader from "./PlantHeader";
 import PlantPurchaseOptions from "./PlantPurchaseOptions";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 const PlantDetail = (props) => {
   const { plant } = props;
@@ -19,7 +21,9 @@ const PlantDetail = (props) => {
 
       {/* right side */}
       <div className="flex-1">
-        <img className="rounded-lg" src={plant?.images[colorIndex]?.src} />
+        <Zoom>
+          <img className="rounded-lg" src={plant?.images[colorIndex]?.src} />
+        </Zoom>
         <div className="flex m-8">
           <BenefitBox
             icon="far fa-check-circle"
