@@ -6,11 +6,13 @@ import RedirectToPlantsIfSignedIn from "shared-components/RedirectToPlantsIfSign
 import { SessionProvider } from "./context/SessionProvider";
 import RedirectToSignInIfSignOut from "shared-components/RedirectToSignInIfSignOut";
 import PlantDetailPage from "pages/PlantDetailPage";
+import ScrollToTop from "shared-components/ScrollToTop";
 
 function App() {
   return (
     <SessionProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route
             path="/"
